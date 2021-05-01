@@ -8,8 +8,9 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
+import moment from 'moment';
 
-import store from "../store";
+import { store } from "@/main";
 
 import Event from "@/types/Event";
 
@@ -21,18 +22,20 @@ import Event from "@/types/Event";
 })
 export default class EventView extends Vue {
 
+  private static dateFormat = 'DD/MM/YYYY';
+
   slug!: string;
 
   private get event(): Event {
-    return store.getters.getEvent(this.slug);
+    return store.getters.event(this.slug);
   }
 
   private get openingTimes(): string {
     const event = this.event;
-    let openingTimes = event.startDate
+    let openingTimes = moment(event.startDate).format(EventView.dateFormat)
 
     if (event.endDate) {
-      openingTimes = `${openingTimes} - ${event.endDate}`
+      openingTimes = `${openingTimes} - ${moment(event.endDate).format(EventView.dateFormat)}`
     }
 
     return openingTimes

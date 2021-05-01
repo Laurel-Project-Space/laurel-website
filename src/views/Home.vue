@@ -6,12 +6,9 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue';
 
 @Options({
-  components: {
-    HelloWorld,
-  },
+  components: {},
 })
 export default class HomeView extends Vue {}
 </script>

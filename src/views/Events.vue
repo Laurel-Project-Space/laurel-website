@@ -8,7 +8,7 @@ import { Options, Vue } from 'vue-class-component';
 
 import EventsList from "@/components/EventsList.vue";
 
-import store from "../store";
+import { store } from "@/main";
 
 import Event from "@/types/Event";
 
@@ -24,7 +24,7 @@ export default class EventsView extends Vue {
   }
 
   get events(): Array<Event> {
-    return store.getters.getEvents;
+    return store.getters.events;
   }
 
 }

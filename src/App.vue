@@ -10,7 +10,7 @@ import { Options, Vue } from 'vue-class-component';
 import Menu from "@/components/Menu.vue";
 import Footer from "@/components/Footer.vue";
 
-import store from "./store";
+import { store } from "@/main";
 
 import Link from "@/types/link";
 
@@ -27,7 +27,7 @@ export default class App extends Vue {
   }
 
   get links(): Array<Link> {
-    return store.getters.getLinks;
+    return store.getters.links;
   }
 }
 </script>
