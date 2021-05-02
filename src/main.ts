@@ -2,17 +2,22 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import {newStore} from './store'
+import {newStore, State} from './store'
 import StubLinkRepository from "@/repository/StubLinkRepository";
 import StubEventRepository from "@/repository/StubEventRepository";
+import {Store} from "vuex";
+
+declare module '@vue/runtime-core' {
+    interface ComponentCustomProperties  {
+        store: Store<State>
+    }
+}
 
 const linkRepository = new StubLinkRepository();
 const eventRepository = new StubEventRepository();
 
-const store = newStore(linkRepository, eventRepository);
+const store: Store<State> = newStore(linkRepository, eventRepository);
+const app = createApp(App).use(store).use(router)
 
-createApp(App).use(store).use(router).mount('#app');
-
-export {
-    store,
-};
+app.config.globalProperties.store = store;
+app.mount('#app');

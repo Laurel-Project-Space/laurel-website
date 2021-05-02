@@ -10,8 +10,6 @@ import { Options, Vue } from 'vue-class-component';
 import Menu from "@/components/Menu.vue";
 import Footer from "@/components/Footer.vue";
 
-import { store } from "@/main";
-
 import Link from "@/types/link";
 
 @Options({
@@ -23,11 +21,11 @@ import Link from "@/types/link";
 export default class App extends Vue {
 
   public async mounted(): Promise<void> {
-    await store.dispatch('init');
+    await this.store.dispatch('init');
   }
 
   get links(): Array<Link> {
-    return store.getters.links;
+    return this.store.getters.links;
   }
 }
 </script>
@@ -42,5 +40,8 @@ export default class App extends Vue {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  margin-left: 20px;
+  margin-right: 20px;
 }
 </style>

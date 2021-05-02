@@ -1,16 +1,19 @@
 <template>
-  <h1>{{ event.title }}</h1>
-  <h2>{{ openingTimes }}</h2>
-  <p>{{ event.description }}</p>
-  <p>{{ event.artists }}</p>
-  <p>{{ event.curator }}</p>
+  <div class="event">
+    <h1>{{ event.title }}</h1>
+    <ImageGallery class="imageGallery" :images="event.images" />
+    <h2>{{ openingTimes }}</h2>
+    <p>{{ event.description }}</p>
+    <p>{{ event.artists }}</p>
+    <p>{{ event.curator }}</p>
+  </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import moment from 'moment';
 
-import { store } from "@/main";
+import ImageGallery from '@/components/ImageGallery.vue'
 
 import Event from "@/types/Event";
 
@@ -18,7 +21,7 @@ import Event from "@/types/Event";
   props: {
     slug: String,
   },
-  components: {},
+  components: {ImageGallery},
 })
 export default class EventView extends Vue {
 
@@ -27,7 +30,7 @@ export default class EventView extends Vue {
   slug!: string;
 
   private get event(): Event {
-    return store.getters.event(this.slug);
+    return this.store.getters.event(this.slug);
   }
 
   private get openingTimes(): string {
@@ -43,3 +46,20 @@ export default class EventView extends Vue {
 
 }
 </script>
+
+<style scoped lang="scss">
+  .event {
+    //display: flex;
+    //flex-direction: column;
+
+    .imageGallery {
+      ////background: yellow;
+      //
+      //height: 800px
+
+      //flex-grow: 1;
+      //background: blue;
+      //background: #42b983;
+    }
+  }
+</style>

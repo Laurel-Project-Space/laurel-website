@@ -9,7 +9,7 @@ import {
   EventRepository,
 } from "@/repository/repository";
 
-interface State {
+export interface State {
   abouts: Array<About>;
   links: Array<Link>;
   events: Array<Event>;

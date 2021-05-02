@@ -8,8 +8,6 @@ import { Options, Vue } from 'vue-class-component';
 
 import EventsList from "@/components/EventsList.vue";
 
-import { store } from "@/main";
-
 import Event from "@/types/Event";
 
 @Options({
@@ -20,11 +18,11 @@ import Event from "@/types/Event";
 export default class EventsView extends Vue {
 
   public async mounted(): Promise<void> {
-    await store.dispatch('fetchEvents');
+    await this.store.dispatch('fetchEvents');
   }
 
   get events(): Array<Event> {
-    return store.getters.events;
+    return this.store.getters.events;
   }
 
 }

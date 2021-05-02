@@ -7,37 +7,6 @@ import {EventRepository} from "@/repository/repository";
 
 const images: Array<Image> = [
   {
-    "id": "605f1c7c9b536f001507128c",
-    "name": "art-oost-1.jpg",
-    "alternativeText": "",
-    "caption": "",
-    "url": "https://res.cloudinary.com/dhft1w7ck/image/upload/v1616845945/art_oost_1_ea23228c04.jpg",
-    "formats": {
-      "thumbnail": {
-        "width": 104,
-        "height": 156,
-        "url": "https://res.cloudinary.com/dhft1w7ck/image/upload/v1616845945/thumbnail_art_oost_1_ea23228c04.jpg",
-      },
-      "large": {
-        "width": 667,
-        "height": 1000,
-        "url": "https://res.cloudinary.com/dhft1w7ck/image/upload/v1616845946/large_art_oost_1_ea23228c04.jpg",
-      },
-      "medium": {
-        "width": 500,
-        "height": 750,
-        "url": "https://res.cloudinary.com/dhft1w7ck/image/upload/v1616845947/medium_art_oost_1_ea23228c04.jpg",
-      },
-      "small": {
-        "width": 333,
-        "height": 500,
-        "url": "https://res.cloudinary.com/dhft1w7ck/image/upload/v1616845948/small_art_oost_1_ea23228c04.jpg",
-      }
-    },
-    "width": 1000,
-    "height": 1500,
-  },
-  {
     "id": "605f1d219b536f001507128e",
     "name": "art-oost-2.jpg",
     "alternativeText": "",
