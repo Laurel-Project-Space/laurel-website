@@ -1,11 +1,12 @@
 <template>
   <div class="event">
-    <h1>{{ event.title }}</h1>
+    <h1 class="center-text title">{{ event.title }}</h1>
+    <h2 class="center-text openingTimes">{{ openingTimes }}</h2>
+    <h2 v-if="event.artists" class="artists left-align">With works by {{ event.artists }}</h2>
+    <h2 v-if="event.curator" class="curators left-align">Curated by {{ event.curator }}</h2>
     <ImageGallery class="imageGallery" :images="event.images" />
-    <h2>{{ openingTimes }}</h2>
-    <p>{{ event.description }}</p>
-    <p>{{ event.artists }}</p>
-    <p>{{ event.curator }}</p>
+    <p class="description">{{ event.description }}</p>
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import { Options, Vue } from 'vue-class-component';
 import moment from 'moment';
 
 import ImageGallery from '@/components/ImageGallery.vue'
+import Footer from "@/components/Footer.vue";
 
 import Event from "@/types/Event";
 
@@ -21,11 +23,16 @@ import Event from "@/types/Event";
   props: {
     slug: String,
   },
-  components: {ImageGallery},
+  components: {
+    ImageGallery,
+    Footer,
+  },
 })
 export default class EventView extends Vue {
 
-  private static dateFormat = 'DD/MM/YYYY';
+  private static dateFormatDay = 'DD';
+  private static dateFormatMonth = 'DD.MM';
+  private static dateFormatYear = 'DD.MM.YYYY';
 
   slug!: string;
 
@@ -35,13 +42,22 @@ export default class EventView extends Vue {
 
   private get openingTimes(): string {
     const event = this.event;
-    let openingTimes = moment(event.startDate).format(EventView.dateFormat)
+    const startDate = moment(event.startDate);
+    const endDate = event.endDate ? moment(event.endDate) : null;
 
-    if (event.endDate) {
-      openingTimes = `${openingTimes} - ${moment(event.endDate).format(EventView.dateFormat)}`
+    if (!endDate || startDate.isSame(endDate)) {
+      return startDate.format(EventView.dateFormatYear);
     }
 
-    return openingTimes
+    if (startDate.isSame(endDate, 'month')) {
+      return `${startDate.format(EventView.dateFormatDay)} — ${endDate.format(EventView.dateFormatYear)}`;
+    }
+
+    if (startDate.isSame(endDate, 'year')) {
+      return `${startDate.format(EventView.dateFormatMonth)} — ${endDate.format(EventView.dateFormatYear)}`;
+    }
+
+    return `${startDate.format(EventView.dateFormatYear)} — ${endDate.format(EventView.dateFormatYear)}`;
   }
 
 }
@@ -49,17 +65,26 @@ export default class EventView extends Vue {
 
 <style scoped lang="scss">
   .event {
-    //display: flex;
-    //flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .center-text {
+      text-align: center;
+    }
+
+    .left-align {
+      margin-right: auto;
+    }
 
     .imageGallery {
-      ////background: yellow;
-      //
-      //height: 800px
+      height: 500px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
 
-      //flex-grow: 1;
-      //background: blue;
-      //background: #42b983;
+    .description {
+      max-width: 70%;
     }
   }
 </style>

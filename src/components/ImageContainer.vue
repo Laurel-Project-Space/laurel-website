@@ -2,12 +2,12 @@
   <div class="flex-container">
     <div class="image">
       <div class="image-placeholder">
-        <svg v-show="!loaded" class="placeholder" :viewBox="`0 0 ${aspectRatio}`"></svg>
+        <svg :v-show="!loaded" class="placeholder" :viewBox="`0 0 ${aspectRatio}`" preserveAspectRatio="xMidYMid meet" x="0" y="0"></svg>
         <img @load="handleLoad" :src="url" :alt="image.alternativeText" :class="loaded ? 'show' : 'hide'">
       </div>
       <div class="info">
         <div class="caption">
-          <p>{{ image.caption || "example caption" }}</p>
+          <p>{{ image.caption }}</p>
         </div>
         <div class="position">
           <p>{{ position }}</p>
@@ -33,9 +33,6 @@ import Image from "@/types/Image";
 export default class ImageContainer extends Vue {
 
   image!: Image;
-
-  placeholderDisplay = 'block';
-  imageDisplay = 'none';
   loaded = false;
 
   private get url(): string {
@@ -77,6 +74,9 @@ export default class ImageContainer extends Vue {
 
 <style scoped lang="scss">
 .flex-container {
+  padding-top: 20px;
+  padding-bottom: 60px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +89,9 @@ export default class ImageContainer extends Vue {
 
   .placeholder {
     background: #f3f3f3;
-    height: 700px;
+
+    max-width: 100%;
+    max-height: 700px;
 
     grid-column: 1;
     grid-row: 1;
@@ -97,7 +99,7 @@ export default class ImageContainer extends Vue {
 
   img {
     max-width: 100%;
-    max-height: 700px;
+    max-height: 500px;
     object-fit: contain;
 
     grid-column: 1;
@@ -130,6 +132,7 @@ export default class ImageContainer extends Vue {
 }
 
 .info {
+  padding-top: 20px;
   width: 100%;
   height: fit-content;
   display: flex;

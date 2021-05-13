@@ -1,8 +1,8 @@
 <template>
   <div class="footer">
-    <span v-for="link in links" :key="link.id">
+    <div v-for="link in links" :key="link.id">
       <a v-bind:key="link.id" target="_blank" v-bind:href="link.url"> {{ link.name }}</a>
-    </span>
+    </div>
   </div>
 </template>
 
@@ -11,18 +11,38 @@ import { Options, Vue } from 'vue-class-component';
 
 import Link from "@/types/link";
 
-@Options({
-  props: {
-    links: Object as () => Array<Link>,
-  }
-})
+@Options({})
 export default class Footer extends Vue {
-  links!: Array<Link>
+
+  public async mounted(): Promise<void> {
+    await this.store.dispatch('fetchLinks');
+  }
+
+  get links(): Array<Link> {
+    return this.store.getters.links;
+  }
+
+
 }
 </script>
 
 <style scoped lang="scss">
-  a {
-    padding-right: 50px;
+a {
+  font-size: 20px;
+
+  margin: 40px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 60px;
+  padding-bottom: 10px;
+}
 </style>

@@ -1,7 +1,10 @@
 <template>
-  <router-link to="/">Laurel</router-link>
-  <router-link to="/about">About</router-link>
-  <router-link to="/events">Events</router-link>
+  <router-link to="/exhibitions">
+    <img class="menu-link" src="../assets/graphics/exhibitions.svg" alt="exhibitions"/>
+  </router-link>
+  <router-link to="/about">
+    <img class="menu-link" src="../assets/graphics/about.svg" alt="exhibitions"/>
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -14,11 +17,12 @@ export default class Menu extends Vue {}
 </script>
 
 <style scoped lang="scss">
-  a {
-    padding-right: 50px;
+.menu-link {
+  height: 50px;
+  margin-right: 50px;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &:hover {
+    filter: invert(20%) sepia(48%) saturate(4100%) hue-rotate(103deg) brightness(92%) contrast(104%);
   }
+}
 </style>

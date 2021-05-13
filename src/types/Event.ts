@@ -6,7 +6,7 @@ export default interface Event {
     title: string;
     startDate: Date;
     endDate?: Date;
-    artists: string;
+    artists?: string;
     curator?: string;
     description: string;
     upcoming: boolean;
