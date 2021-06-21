@@ -1,26 +1,23 @@
 <template>
-  <div class="flex-container">
-    <div class="image">
-      <div class="image-placeholder">
-        <svg :v-show="!loaded" class="placeholder" :viewBox="`0 0 ${aspectRatio}`" preserveAspectRatio="xMidYMid meet" x="0" y="0"></svg>
-        <img @load="handleLoad" :src="url" :alt="image.alternativeText" :class="loaded ? 'show' : 'hide'">
-      </div>
-      <div class="info">
-        <div class="caption">
-          <p>{{ image.caption }}</p>
-        </div>
-        <div class="position">
-          <p>{{ position }}</p>
+    <div class="container">
+      <div class="content">
+        <img @load="handleLoad" :v-show="loaded" :src="url" :alt="image.alternativeText">
+        <div :v-show="loaded" class="info">
+          <div class="caption">
+            <p>{{ image.caption }}</p>
+          </div>
+          <div class="position">
+            <p>{{ position }}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <span v-on:click="previousImage" class="click-area-left"></span>
-    <span v-on:click="nextImage" class="click-area-right"></span>
+      <span v-on:click="previousImage" class="click-area-left"></span>
+      <span v-on:click="nextImage" class="click-area-right"></span>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import {Options, Vue} from 'vue-class-component';
 
 import Image from "@/types/Image";
 
@@ -73,41 +70,32 @@ export default class ImageContainer extends Vue {
 </script>
 
 <style scoped lang="scss">
-.flex-container {
-  padding-top: 20px;
-  padding-bottom: 60px;
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
+  justify-content: center;
 
-.image {
-  position: relative;
-  height: fit-content;
-  width: fit-content;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: fit-content;
 
-  .placeholder {
-    background: #f3f3f3;
+    //@media (max-width:960px) {
+    //  max-height: 100%;
+    //  width: 100%;
+    //}
 
-    max-width: 100%;
-    max-height: 700px;
-
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  img {
-    max-width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-
-    grid-column: 1;
-    grid-row: 1;
-
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+    img {
+      max-width: 100%;
+      max-height: calc(100% - 30px);
+    }
   }
 
   .click-area-left {
@@ -146,18 +134,5 @@ export default class ImageContainer extends Vue {
     width: 30%;
     text-align: right;
   }
-}
-
-.hide {
-  opacity: 0;
-}
-
-.show {
-  opacity: 1;
-  transition: 100ms;
-}
-
-.image-placeholder {
-  display: grid;
 }
 </style>

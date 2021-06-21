@@ -10,7 +10,7 @@
         </router-link>
       </li>
     </ul>
-    <h2 class="subheading">Archive:</h2>
+    <h2 class="subheading">Archive</h2>
     <ul>
       <li v-for="event in archiveEvents" :key="event.id">
         <router-link :to="{ name: 'Event', params: { slug: event.slug }}">
@@ -102,7 +102,7 @@ a:hover {
   }
 
   .title {
-    color: #006400;
+    color: #005e1f;
 
     &:hover {
       text-decoration: underline;

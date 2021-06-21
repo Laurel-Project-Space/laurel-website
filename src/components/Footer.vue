@@ -30,7 +30,7 @@ export default class Footer extends Vue {
 a {
   font-size: 20px;
 
-  margin: 40px;
+  margin: 30px;
   text-decoration: none;
 
   &:hover {
