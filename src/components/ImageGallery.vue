@@ -8,21 +8,26 @@ import Hammer from 'hammerjs';
 
 import ImageContainer from "@/components/ImageContainer.vue";
 
-import Image from "@/types/Image";
+import ImageMetadata from "@/types/Image";
 
 @Options({
   components: {ImageContainer},
   props: {
-    images: Object as () => Array<Image>,
+    images: Object as () => Array<ImageMetadata>,
   }
 })
 export default class ImageGallery extends Vue {
 
-  images!: Array<Image>;
+  images!: Array<ImageMetadata>;
 
   private index = 0;
 
   public mounted(): void {
+    for (const image of this.images) {
+      const i = new Image();
+      i.src = image.url;
+    }
+
     // register key listeners
     document.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight') {
@@ -57,7 +62,7 @@ export default class ImageGallery extends Vue {
     }
   }
 
-  private get image(): Image {
+  private get image(): ImageMetadata {
     return this.images[this.index];
   }
 
@@ -70,5 +75,6 @@ export default class ImageGallery extends Vue {
 <style scoped lang="scss">
 .image {
   width: 100%;
+  height: 100%;
 }
 </style>

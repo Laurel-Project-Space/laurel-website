@@ -1,6 +1,6 @@
 <template>
   <Menu/>
-  <div class="content">
+  <div id="content">
     <router-view/>
   </div>
 </template>
@@ -83,14 +83,14 @@ p {
 }
 
 a {
-  color: #006400;
+  color: #005e1f;
 }
 
 #app {
   font-family: 'NeueHaasGrotDisp-55Roman', Helvetica, Arial, sans-serif;
   font-size: 18px;
 
-  .content {
+  #content {
     margin: 40px;
   }
 }
