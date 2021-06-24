@@ -3,9 +3,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import {newStore, State} from './store'
-import StubLinkRepository from "@/repository/StubLinkRepository";
-import StubEventRepository from "@/repository/StubEventRepository";
 import {Store} from "vuex";
+
+import CMSLinkRepository from "@/repository/CMSLinkRepository";
+import StubEventRepository from "@/repository/StubEventRepository";
 
 declare module '@vue/runtime-core' {
     interface ComponentCustomProperties  {
@@ -13,7 +14,8 @@ declare module '@vue/runtime-core' {
     }
 }
 
-const linkRepository = new StubLinkRepository();
+const cmsURL = process.env['VUE_APP_CMS_URL'];
+const linkRepository = new CMSLinkRepository(cmsURL);
 const eventRepository = new StubEventRepository();
 
 const store: Store<State> = newStore(linkRepository, eventRepository);
