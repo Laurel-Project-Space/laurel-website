@@ -8,17 +8,17 @@ import Hammer from 'hammerjs';
 
 import ImageContainer from "@/components/ImageContainer.vue";
 
-import ImageMetadata from "@/types/Image";
+import Metadata from "@/types/Metadata.ts";
 
 @Options({
   components: {ImageContainer},
   props: {
-    images: Object as () => Array<ImageMetadata>,
+    images: Object as () => Array<Metadata>,
   }
 })
 export default class ImageGallery extends Vue {
 
-  images!: Array<ImageMetadata>;
+  images!: Array<Metadata>;
 
   private index = 0;
 
@@ -62,7 +62,7 @@ export default class ImageGallery extends Vue {
     }
   }
 
-  private get image(): ImageMetadata {
+  private get image(): Metadata {
     return this.images[this.index];
   }
 

@@ -4,7 +4,7 @@
     <h2 class="center-text openingTimes">{{ openingTimes }}</h2>
     <h2 v-if="event.artists" class="artists left-align">With works by {{ event.artists }}</h2>
     <h2 v-if="event.curator" class="curators left-align">Curated by {{ event.curator }}</h2>
-    <ImageGallery class="imageGallery" :images="event.images" />
+    <ImageGallery v-if="event.images" class="imageGallery" :images="event.images" />
     <p class="description">{{ event.description }}</p>
     <Footer />
   </div>
@@ -35,6 +35,10 @@ export default class EventView extends Vue {
   private static dateFormatYear = 'DD.MM.YYYY';
 
   slug!: string;
+
+  public async created(): Promise<void> {
+    await this.store.dispatch('fetchEvents');
+  }
 
   private get event(): Event {
     return this.store.getters.event(this.slug);

@@ -19,10 +19,6 @@ import Link from "@/types/link";
 })
 export default class App extends Vue {
 
-  public async mounted(): Promise<void> {
-    await this.store.dispatch('init');
-  }
-
   get links(): Array<Link> {
     return this.store.getters.links;
   }

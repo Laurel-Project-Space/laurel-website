@@ -45,7 +45,13 @@ export default class EventsList extends Vue {
   private upcomingEvents: Array<Event> = [];
   private archiveEvents: Array<Event> = [];
 
-  mounted(): void {
+  public async mounted(): Promise<void> {
+    await this.store.dispatch('fetchEvents');
+
+    this.events.sort(function(a, b: Event): number {
+      return b.startDate.valueOf() - a.startDate.valueOf();
+    });
+
     this.events.forEach(event => {
       if (event.upcoming) {
         this.upcomingEvents.push(event);
@@ -98,6 +104,7 @@ a:hover {
   display: inline-block;
 
   .date {
+    padding-top: 15px;
     color: black;
   }
 

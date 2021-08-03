@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <EventsList :events="events" />
+    <EventsList class="eventList" :events="events" />
     <div class="footer">
       <Footer />
     </div>
@@ -23,14 +23,9 @@ import Event from "@/types/Event";
 })
 export default class EventsView extends Vue {
 
-  public async mounted(): Promise<void> {
-    await this.store.dispatch('fetchEvents');
-  }
-
   get events(): Array<Event> {
     return this.store.getters.events;
   }
-
 }
 </script>
 
@@ -45,6 +40,11 @@ export default class EventsView extends Vue {
     left: 40px;
     right: 40px;
     bottom: 40px;
+    z-index: 1;
+  }
+
+  .eventList {
+    z-index: 2;
   }
 }
 </style>

@@ -102,37 +102,37 @@ const images: Array<Image> = [
 ]
 
 export default class StubEventRepository implements EventRepository {
-    public async getAll(): Promise<Array<Event>> {
-        return [{
-          id: '1',
-          slug: 'example-event-1',
-          title: 'Our Seas Are What We Make of Them',
-          startDate: moment("20120620", "YYYYMMDD").toDate(),
-          endDate: moment("20120623", "YYYYMMDD").toDate(),
-          artists: 'Sophie Utikal, Anto López Espinosa, Kristina Õllek, Sara Milio, Enar de Dios Rodriguez, Baratto & Mouravas',
-          curator: 'Angeliki Tzortzakaki',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-          upcoming: true,
-          images: images,
-        }, {
-          id: '2',
-          slug: 'example-event-2',
-          title: 'Art Oost / Open Studios',
-          startDate: moment().subtract(10, 'days').toDate(),
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-          upcoming: false,
-          images: images,
-        }, {
-          id: '3',
-          slug: 'example-event-3',
-          title: 'Separation, Alignment, Cohesion',
-          startDate: moment("20111031", "YYYYMMDD").toDate(),
-          endDate: moment("20120620", "YYYYMMDD").toDate(),
-          artists: 'some artist, another artist',
-          curator: 'some curator',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-          upcoming: false,
-          images: images,
-        }];
+  public async getAll(): Promise<Array<Event>> {
+    return [{
+      id: '1',
+      slug: 'example-event-1',
+      title: 'Our Seas Are What We Make of Them',
+      startDate: moment("20120620", "YYYYMMDD").toDate(),
+      endDate: moment("20120623", "YYYYMMDD").toDate(),
+      artists: 'Sophie Utikal, Anto López Espinosa, Kristina Õllek, Sara Milio, Enar de Dios Rodriguez, Baratto & Mouravas',
+      curator: 'Angeliki Tzortzakaki',
+      description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+      upcoming: true,
+      images: images,
+    }, {
+      id: '2',
+      slug: 'example-event-2',
+      title: 'Art Oost / Open Studios',
+      startDate: moment().subtract(10, 'days').toDate(),
+      description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+      upcoming: false,
+      images: images,
+    }, {
+      id: '3',
+      slug: 'example-event-3',
+      title: 'Separation, Alignment, Cohesion',
+      startDate: moment("20111031", "YYYYMMDD").toDate(),
+      endDate: moment("20120620", "YYYYMMDD").toDate(),
+      artists: 'some artist, another artist',
+      curator: 'some curator',
+      description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+      upcoming: false,
+      images: images,
+    }];
     }
 }
