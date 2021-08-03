@@ -20,6 +20,7 @@ export function newStore(linkRepository: LinkRepository, eventRepository: EventR
     state: {
       links: Array<Link>(),
       events: Array<Event>(),
+      eventMap: new Map<string, Event>(),
       abouts: Array<About>(),
     },
     mutations: {
@@ -28,6 +29,9 @@ export function newStore(linkRepository: LinkRepository, eventRepository: EventR
       },
       setEvents(state, events: Array<Event>) {
         state.events = events;
+        for (const event of events) {
+          state.eventMap.set(event.slug, event);
+        }
       },
     },
     getters: {
@@ -39,21 +43,11 @@ export function newStore(linkRepository: LinkRepository, eventRepository: EventR
       },
       event(state) {
         return (slug: string): Event | void => {
-          for (const event of state.events) {
-            if (event.slug === slug) {
-              return event;
-            }
-          }
+          return state.eventMap.get(slug);
         };
       }
     },
     actions: {
-      async init(context) {
-        await Promise.all([
-          context.dispatch('fetchLinks'),
-          context.dispatch('fetchEvents'),
-        ]);
-      },
       async fetchLinks(context) {
         const links: Array<Link> = await linkRepository.getAll();
         context.commit('setLinks', links);

@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div v-for="link in links" :key="link.id">
-      <a v-bind:key="link.id" target="_blank" v-bind:href="link.url"> {{ link.name }}</a>
+      <a v-bind:key="link.id" target="_blank" v-bind:href="link.link"> {{ link.name }}</a>
     </div>
   </div>
 </template>

@@ -6,7 +6,7 @@ import {newStore, State} from './store'
 import {Store} from "vuex";
 
 import CMSLinkRepository from "@/repository/CMSLinkRepository";
-import StubEventRepository from "@/repository/StubEventRepository";
+import CMSEventRepository from "@/repository/CMSEventRepository";
 
 declare module '@vue/runtime-core' {
     interface ComponentCustomProperties  {
@@ -16,7 +16,7 @@ declare module '@vue/runtime-core' {
 
 const cmsURL = process.env['VUE_APP_CMS_URL'];
 const linkRepository = new CMSLinkRepository(cmsURL);
-const eventRepository = new StubEventRepository();
+const eventRepository = new CMSEventRepository(cmsURL);
 
 const store: Store<State> = newStore(linkRepository, eventRepository);
 const app = createApp(App).use(store).use(router)
