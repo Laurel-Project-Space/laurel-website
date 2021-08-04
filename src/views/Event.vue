@@ -84,9 +84,21 @@ export default class EventView extends Vue {
     .imageGallery {
       height: 60vh;
 
+      @media (max-width: 800px) {
+        &{
+          height: 50vh;
+        }
+      }
+
+      @media (max-width: 700px) {
+        &{
+          height: 40vh;
+        }
+      }
+
       @media (max-width: 600px) {
         &{
-          background-color: lightblue;
+          height: 30vh;
         }
       }
 
