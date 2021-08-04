@@ -3,7 +3,7 @@ import moment from "moment";
 import Event from "@/types/Event";
 import Image from "@/types/Image";
 
-import {EventRepository} from "@/repository/repository";
+import {EventRepository} from "@/repository/Repository";
 
 const images: Array<Image> = [
   {

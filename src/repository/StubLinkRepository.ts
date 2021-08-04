@@ -1,6 +1,6 @@
-import Link from "@/types/link";
+import Link from "@/types/Link";
 
-import {LinkRepository} from "@/repository/repository";
+import {LinkRepository} from "@/repository/Repository";
 
 export default class StubLinkRepository implements LinkRepository {
     public async getAll(): Promise<Array<Link>> {

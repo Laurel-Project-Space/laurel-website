@@ -9,7 +9,7 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 
-import Link from "@/types/link";
+import Link from "@/types/Link";
 
 @Options({})
 export default class Footer extends Vue {

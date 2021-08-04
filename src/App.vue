@@ -10,7 +10,7 @@ import { Options, Vue } from 'vue-class-component';
 
 import Menu from "@/components/Menu.vue";
 
-import Link from "@/types/link";
+import Link from "@/types/Link";
 
 @Options({
   components: {

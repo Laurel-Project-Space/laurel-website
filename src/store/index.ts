@@ -1,13 +1,13 @@
 import {createStore, Store} from 'vuex'
 
-import Link from "@/types/link";
+import Link from "@/types/Link";
 import Event from "@/types/Event";
 import About from "@/types/About";
 
 import {
   LinkRepository,
   EventRepository,
-} from "@/repository/repository";
+} from "@/repository/Repository";
 
 export interface State {
   abouts: Array<About>;

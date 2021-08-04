@@ -2,7 +2,7 @@ import slugify from "slugify";
 
 import Event from "@/types/Event";
 
-import {EventRepository} from "@/repository/repository";
+import {EventRepository} from "@/repository/Repository";
 
 export default class CMSEventRepository implements EventRepository {
 
