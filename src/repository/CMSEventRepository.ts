@@ -44,6 +44,6 @@ export default class CMSEventRepository implements EventRepository {
             event.images = e.images;
         }
 
-        return event
+        return event;
     }
 }

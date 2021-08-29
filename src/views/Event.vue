@@ -5,7 +5,7 @@
     <h2 v-if="event.artists" class="artists left-align">With works by {{ event.artists }}</h2>
     <h2 v-if="event.curator" class="curators left-align">Curated by {{ event.curator }}</h2>
     <ImageGallery v-if="event.images" class="imageGallery" :images="event.images" />
-    <p class="description">{{ event.description }}</p>
+    <p class="description" v-html="formatMarkdown(event.description)"></p>
     <Footer />
   </div>
 </template>
@@ -62,6 +62,26 @@ export default class EventView extends Vue {
     }
 
     return `${startDate.format(EventView.dateFormatYear)} — ${endDate.format(EventView.dateFormatYear)}`;
+  }
+
+  private formatMarkdown(markdown: string): string {
+    let str = markdown;
+    const elements = markdown.match(/\[.*?\)/g);
+    if (elements != null && elements.length > 0) {
+      for (const el of elements) {
+        if (el !== undefined) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore: Object is possibly 'null'.
+          const txt = el.match(/\[(.*?)\]/)[1]; // get only the txt
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore: Object is possibly 'null'.
+          const url = el.match(/\((.*?)\)/)[1]; // get only the link
+          str = str.replace(el, `<a style="color:black;" href="${url}"
+            target="_blank">${txt}</a>`);
+        }
+      }
+    }
+    return str;
   }
 
 }
