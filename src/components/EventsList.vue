@@ -31,7 +31,8 @@ import moment from "moment";
 
 @Options({
   props: {
-    events: Object as () => Array<Event>,
+    upcomingEvents: Object as () => Array<Event>,
+    archiveEvents: Object as () => Array<Event>,
   }
 })
 export default class EventsList extends Vue {
@@ -40,26 +41,8 @@ export default class EventsList extends Vue {
   private static dateFormatMonth = 'DD.MM';
   private static dateFormatYear = 'DD.MM.YYYY';
 
-  events!: Array<Event>;
-
-  private upcomingEvents: Array<Event> = [];
-  private archiveEvents: Array<Event> = [];
-
-  public async mounted(): Promise<void> {
-    await this.store.dispatch('fetchEvents');
-
-    this.events.sort(function(a, b: Event): number {
-      return b.startDate.valueOf() - a.startDate.valueOf();
-    });
-
-    this.events.forEach(event => {
-      if (event.upcoming) {
-        this.upcomingEvents.push(event);
-      } else {
-        this.archiveEvents.push(event);
-      }
-    });
-  }
+  upcomingEvents!: Array<Event>;
+  archiveEvents!: Array<Event>;
 
   private formatOpeningTimes(start: Date, end: Date): string {
     const startDate = moment(start);

@@ -29,6 +29,10 @@ export function newStore(linkRepository: LinkRepository, eventRepository: EventR
         state.links = links;
       },
       setEvents(state, events: Array<Event>) {
+        events.sort(function(a, b: Event): number {
+          return b.startDate.valueOf() - a.startDate.valueOf();
+        });
+
         state.events = events;
         for (const event of events) {
           state.eventMap.set(event.slug, event);
@@ -42,8 +46,11 @@ export function newStore(linkRepository: LinkRepository, eventRepository: EventR
       links(state) {
         return state.links;
       },
-      events(state) {
-        return state.events;
+      upcomingEvents(state) {
+        return state.events.filter(event => event.upcoming);
+      },
+      archiveEvents(state) {
+        return state.events.filter(event => !event.upcoming);
       },
       event(state) {
         return (slug: string): Event | void => {

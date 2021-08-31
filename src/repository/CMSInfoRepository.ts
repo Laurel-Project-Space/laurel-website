@@ -18,6 +18,7 @@ export default class CMSInfoRepository implements InfoRepository {
     private static deserialize(e: any): Info {
         const info: Info = {
             id: e.id,
+            title: e.title,
             description: e.description,
         };
 

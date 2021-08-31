@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <EventsList class="eventList" :events="events" />
+    <EventsList class="eventList" :upcomingEvents="upcomingEvents" :archiveEvents="archiveEvents" />
     <div class="footer">
       <Footer />
     </div>
@@ -23,8 +23,16 @@ import Event from "@/types/Event";
 })
 export default class EventsView extends Vue {
 
-  get events(): Array<Event> {
-    return this.store.getters.events;
+  public async mounted(): Promise<void> {
+    await this.store.dispatch('fetchEvents');
+  }
+
+  get upcomingEvents(): Array<Event> {
+    return this.store.getters.upcomingEvents;
+  }
+
+  get archiveEvents(): Array<Event> {
+    return this.store.getters.archiveEvents;
   }
 }
 </script>

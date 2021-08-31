@@ -129,6 +129,8 @@ export default class EventView extends Vue {
     .description {
       width: 80%;
 
+      white-space: pre-wrap;
+
       margin-top: 40px;
       margin-bottom: 40px;
 
