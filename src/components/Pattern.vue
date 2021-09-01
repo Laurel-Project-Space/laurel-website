@@ -25,12 +25,6 @@ export default class Pattern extends Vue {
 
   private renderPattern() {
     const content = document.getElementById('pattern') as HTMLElement;
-    // const canvas = document.getElementById('pattern') as HTMLCanvasElement;
-    // const ctx = canvas!.getContext('2d');
-    // if (ctx === null) {
-    //   return;
-    // }
-
     const canvasWidth = content.clientWidth
     const canvasHeight = content.clientHeight
 
@@ -106,6 +100,8 @@ function randomIntFromInterval(min: number, max: number) { // min and max includ
 
 <style scoped lang="scss">
   #pattern {
+    overflow: hidden;
+
     z-index: 1000; // or any value higher than your other elements
     width: 100%;
     height: 100%;
@@ -115,6 +111,7 @@ function randomIntFromInterval(min: number, max: number) { // min and max includ
     left: 0;
 
     .wrap {
+      overflow: hidden;
       height: 100%;
       width: 100%;
 

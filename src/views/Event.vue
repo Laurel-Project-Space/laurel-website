@@ -1,5 +1,5 @@
 <template>
-  <div v-if="rendered" class="event">
+  <div class="event">
     <h1 class="center-text title">{{ event.title }}</h1>
     <h2 class="center-text openingTimes">{{ openingTimes }}</h2>
     <h2 v-if="event.artists" class="artists left-align">With works by {{ event.artists }}</h2>
