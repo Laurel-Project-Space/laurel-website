@@ -36,13 +36,24 @@ a {
   &:hover {
     text-decoration: underline;
   }
+
+  @media (max-width: 750px) {
+    margin: 0;
+    display: block;
+    padding-bottom: 15px;
+  }
 }
 
 .footer {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+
+  @media (max-width: 750px) {
+    display: block;
+  }
+
   padding-top: 60px;
-  padding-bottom: 10px;
+  padding-bottom: 60px;
 }
 </style>

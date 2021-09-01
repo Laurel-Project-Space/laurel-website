@@ -25,6 +25,9 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0, behavior: "auto" };
+  },
   history: createWebHistory(process.env.BASE_URL),
   routes
 })

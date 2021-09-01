@@ -31,6 +31,12 @@ export default class InfoBlock extends Vue {
       padding: 30px 60px;
     }
   }
+
+  @media (max-width: 800px) {
+    &{
+      padding: 30px 15px;
+    }
+  }
 }
 
 h1 {
@@ -40,5 +46,11 @@ h1 {
 p {
   font-size: 23px;
   white-space: pre-wrap;
+
+  @media (max-width: 800px) {
+    &{
+      font-size: 20px;
+    }
+  }
 }
 </style>

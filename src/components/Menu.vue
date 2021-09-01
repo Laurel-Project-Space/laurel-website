@@ -1,10 +1,10 @@
 <template>
-  <img class="logo" src="../assets/graphics/logo.svg" alt="exhibitions"/>
-  <router-link to="/exhibitions">
+  <img class="logo" src="../assets/graphics/logo.svg" alt="laurel"/>
+  <router-link to="/">
     <img class="menu-link" src="../assets/graphics/exhibitions.svg" alt="exhibitions"/>
   </router-link>
   <router-link to="/about">
-    <img class="menu-link" src="../assets/graphics/about.svg" alt="exhibitions"/>
+    <img class="menu-link" src="../assets/graphics/about.svg" alt="about"/>
   </router-link>
 </template>
 

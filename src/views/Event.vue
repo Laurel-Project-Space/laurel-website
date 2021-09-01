@@ -8,6 +8,7 @@
     <p class="description" v-html="formatMarkdown(event.description)"></p>
     <Footer />
   </div>
+  <Pattern v-if="rendered" />
 </template>
 
 <script lang="ts">
@@ -16,6 +17,7 @@ import moment from 'moment';
 
 import ImageGallery from '@/components/ImageGallery.vue'
 import Footer from "@/components/Footer.vue";
+import Pattern from "@/components/Pattern.vue";
 
 import Event from "@/types/Event";
 
@@ -26,6 +28,7 @@ import Event from "@/types/Event";
   components: {
     ImageGallery,
     Footer,
+    Pattern,
   },
 })
 export default class EventView extends Vue {
@@ -36,8 +39,15 @@ export default class EventView extends Vue {
 
   slug!: string;
 
+  rendered = false;
+
   public async created(): Promise<void> {
     await this.store.dispatch('fetchEvents');
+  }
+
+  public async mounted(): Promise<void> {
+    document.title = `Laurel - ${this.event.title}`;
+    this.rendered = true;
   }
 
   private get event(): Event {
@@ -104,7 +114,7 @@ export default class EventView extends Vue {
     .imageGallery {
       height: 60vh;
 
-      @media (max-width: 800px) {
+      @media (max-width: 850px) {
         &{
           height: 50vh;
         }
@@ -128,6 +138,18 @@ export default class EventView extends Vue {
 
     .description {
       width: 80%;
+
+      @media (max-width: 850px) {
+        &{
+          width: 90%;
+        }
+      }
+
+      @media (max-width: 750px) {
+        &{
+          width: 100%;
+        }
+      }
 
       white-space: pre-wrap;
 

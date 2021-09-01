@@ -26,6 +26,12 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -87,7 +93,9 @@ a {
   font-size: 18px;
 
   #content {
+    position: relative;
     margin: 40px;
+    height: 100%;
   }
 }
 </style>
