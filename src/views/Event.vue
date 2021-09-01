@@ -1,5 +1,5 @@
 <template>
-  <div class="event">
+  <div v-if="rendered" class="event">
     <h1 class="center-text title">{{ event.title }}</h1>
     <h2 class="center-text openingTimes">{{ openingTimes }}</h2>
     <h2 v-if="event.artists" class="artists left-align">With works by {{ event.artists }}</h2>
@@ -41,11 +41,8 @@ export default class EventView extends Vue {
 
   rendered = false;
 
-  public async created(): Promise<void> {
-    await this.store.dispatch('fetchEvents');
-  }
-
   public async mounted(): Promise<void> {
+    await this.store.dispatch('fetchEvents');
     document.title = `Laurel - ${this.event.title}`;
     this.rendered = true;
   }

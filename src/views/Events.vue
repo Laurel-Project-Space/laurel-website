@@ -1,5 +1,5 @@
 <template>
-  <div class="events">
+  <div v-if="rendered" class="events">
     <EventsList class="eventList" :upcomingEvents="upcomingEvents" :archiveEvents="archiveEvents" />
     <div class="footer">
       <Footer />
