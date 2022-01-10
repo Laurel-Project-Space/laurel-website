@@ -33,7 +33,7 @@ export default class ImageContainer extends Vue {
   loaded = false;
 
   private get url(): string {
-    return this.image.formats.large ? this.image.formats.large.url : this.image.url;
+    return this.image.formats && this.image.formats.large ? this.image.formats.large.url : this.image.url;
   }
 
   private previousImage() {
