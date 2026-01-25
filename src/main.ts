@@ -7,9 +7,9 @@ import {Store} from "vuex";
 
 import VueGtag from "vue-gtag-next";
 
-import CMSLinkRepository from "@/repository/CMSLinkRepository";
-import CMSEventRepository from "@/repository/CMSEventRepository";
-import CMSInfoRepository from "@/repository/CMSInfoRepository";
+import StaticLinkRepository from "@/repository/StaticLinkRepository";
+import StaticEventRepository from "@/repository/StaticEventRepository";
+import StaticInfoRepository from "@/repository/StaticInfoRepository";
 
 declare module '@vue/runtime-core' {
     interface ComponentCustomProperties  {
@@ -17,11 +17,9 @@ declare module '@vue/runtime-core' {
     }
 }
 
-const cmsURL = process.env['VUE_APP_CMS_URL'];
-
-const linkRepository = new CMSLinkRepository(cmsURL);
-const eventRepository = new CMSEventRepository(cmsURL);
-const infoRepository = new CMSInfoRepository(cmsURL);
+const linkRepository = new StaticLinkRepository();
+const eventRepository = new StaticEventRepository();
+const infoRepository = new StaticInfoRepository();
 
 const store: Store<State> = newStore(linkRepository, eventRepository, infoRepository);
 const app = createApp(App)

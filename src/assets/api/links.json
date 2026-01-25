@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "60d4a62ca2c4c6001b672155",
+    "name": "Facebook",
+    "link": "https://www.facebook.com/laurel.160",
+    "published_at": "2021-06-24T15:35:11.239Z",
+    "createdAt": "2021-06-24T15:35:08.740Z",
+    "updatedAt": "2021-06-24T15:35:11.302Z",
+    "__v": 0,
+    "id": "60d4a62ca2c4c6001b672155"
+  },
+  {
+    "_id": "60d4a60ba2c4c6001b672154",
+    "name": "Email",
+    "link": "mailto:hello@laurelprojectspace.com",
+    "published_at": "2021-06-24T15:34:39.748Z",
+    "createdAt": "2021-06-24T15:34:35.185Z",
+    "updatedAt": "2021-06-24T15:34:39.813Z",
+    "__v": 0,
+    "id": "60d4a60ba2c4c6001b672154"
+  },
+  {
+    "_id": "60d4a64ea2c4c6001b672156",
+    "name": "Instagram",
+    "link": "https://www.instagram.com/laurelprojectspace",
+    "published_at": "2021-06-24T15:35:45.302Z",
+    "createdAt": "2021-06-24T15:35:42.819Z",
+    "updatedAt": "2021-06-24T15:35:45.366Z",
+    "__v": 0,
+    "id": "60d4a64ea2c4c6001b672156"
+  },
+  {
+    "_id": "60d4a6b4a2c4c6001b672158",
+    "name": "Directions",
+    "link": "https://goo.gl/maps/qxjME3EUvmHAhuKb8",
+    "published_at": "2021-06-24T15:37:27.166Z",
+    "createdAt": "2021-06-24T15:37:24.983Z",
+    "updatedAt": "2021-06-24T15:37:27.228Z",
+    "__v": 0,
+    "id": "60d4a6b4a2c4c6001b672158"
+  },
+  {
+    "_id": "60d4a681a2c4c6001b672157",
+    "name": "Newsletter",
+    "link": "https://laurelprojectspace.us7.list-manage.com/subscribe?u=c387b34e7c79d5c15d9d0610d&id=e83a4d3c5d",
+    "published_at": "2021-06-24T15:36:36.072Z",
+    "createdAt": "2021-06-24T15:36:33.541Z",
+    "updatedAt": "2021-06-24T15:36:36.133Z",
+    "__v": 0,
+    "id": "60d4a681a2c4c6001b672157"
+  }
+]
